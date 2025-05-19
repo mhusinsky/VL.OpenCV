@@ -176,7 +176,7 @@ namespace VL.OpenCV
         /// <param name="translationVector">1x3 translation vector</param>
         /// <param name="specials">Set of values to be appended to the last column of the resulting matrix</param>
         /// <returns>4x4 transformation matrix in the correct order for vvvv</returns>
-        private static Matrix ToTransformationMatrix(Mat matrix, Mat translationVector, FourthColumn fourthColumn)
+        public static Matrix ToTransformationMatrix(Mat matrix, Mat translationVector, FourthColumn fourthColumn)
         {
             Matrix result = Matrix.Identity;
             if (matrix != null && translationVector != null)
@@ -270,6 +270,39 @@ namespace VL.OpenCV
         }
 
         /// <summary>
+        /// Splits a transformation matrix into its corresponding rotation matrix and translation vector as Mats
+        /// </summary>
+        /// <param name="transform">Input 4x4 transformation matrix</param>
+        /// <param name="rotationMatrix">3x3 output rotation matrix as a Mat</param>
+        /// <param name="translationVector">1x3 output translation vector as a Mat</param>
+        public static void MatrixToRotationAndTranslation(Matrix transform, out Mat rotationMatrix, out Mat translationVector)
+        {
+            //rmatrix
+            // 11  21  31
+            // 12  22  32
+            // 13  23  33
+            // we need to transpose our 3x3 matrix here
+            double[,] rmatrix = new double[3, 3];
+            rmatrix[0, 0] = transform.M11;
+            rmatrix[0, 1] = transform.M21;
+            rmatrix[0, 2] = transform.M31;
+            rmatrix[1, 0] = transform.M12;
+            rmatrix[1, 1] = transform.M22;
+            rmatrix[1, 2] = transform.M32;
+            rmatrix[2, 0] = transform.M13;
+            rmatrix[2, 1] = transform.M23;
+            rmatrix[2, 2] = transform.M33;
+            rotationMatrix = new Mat(3, 3, OpenCvSharp.MatType.CV_64FC1, rmatrix);
+
+            //tvec
+            //transform.M41
+            //transform.M42
+            //transform.M43
+            double[] tvecArray = new double[] { transform.M41, transform.M42, transform.M43 };
+            translationVector = new Mat(3, 1, OpenCvSharp.MatType.CV_64FC1, tvecArray);
+        }
+
+        /// <summary>
         /// Converts a 3x3 camera matrix into a 4x4 transformation matrix
         /// </summary>
         /// <param name="cameraMatrix">3x3 camera matrix</param>
@@ -280,7 +313,7 @@ namespace VL.OpenCV
             return ToTransformationMatrix(cameraMatrix, translationVector, FourthColumn.Projection);
         }
 
-        enum FourthColumn
+        public enum FourthColumn
         {
             Standard,
             Projection

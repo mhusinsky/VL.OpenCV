@@ -26875,12 +26875,12 @@
                 </Patch>
                 <ControlPoint Id="PNJAwDuzssJMCfPo5Y4nbd" Bounds="297,930" Alignment="Bottom" />
               </Node>
-              <ControlPoint Id="HTq2Ipp3XVdLW30jDG4lPU" Bounds="952,80" />
-              <ControlPoint Id="SrT95UtePH3PywXnKwuTOc" Bounds="234,61" />
-              <ControlPoint Id="EQX3QQrGQMlQJXzt3TAQRK" Bounds="439,61" />
-              <ControlPoint Id="RRay0M8UycQMiuAtHLi3Pf" Bounds="753,63" />
-              <Pad Id="LnEfCqrD0hjPaNQQbtCzLC" Comment="Method" Bounds="766,91,72,15" ShowValueBox="true" isIOBox="true" />
-              <Node Bounds="578,65,51,19" Id="KRP2bWaEGbrL8jgkllhE3i">
+              <ControlPoint Id="HTq2Ipp3XVdLW30jDG4lPU" Bounds="990,50" />
+              <ControlPoint Id="SrT95UtePH3PywXnKwuTOc" Bounds="234,31" />
+              <ControlPoint Id="EQX3QQrGQMlQJXzt3TAQRK" Bounds="364,31" />
+              <ControlPoint Id="RRay0M8UycQMiuAtHLi3Pf" Bounds="791,33" />
+              <Pad Id="LnEfCqrD0hjPaNQQbtCzLC" Comment="Method" Bounds="804,61,72,15" ShowValueBox="true" isIOBox="true" />
+              <Node Bounds="616,35,51,19" Id="KRP2bWaEGbrL8jgkllhE3i">
                 <p:NodeReference LastCategoryFullName="3D.Matrix" LastDependency="VL.CoreLib.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <CategoryReference Kind="4026531840" Name="Matrix" NeedsToBeDirectParent="true" />
@@ -26888,7 +26888,7 @@
                 </p:NodeReference>
                 <Pin Id="LBNgVk5GyzKLfP2QvfltyE" Name="Identity" Kind="OutputPin" />
               </Node>
-              <Node Bounds="578,95,164,19" Id="E3ZuYxHLCiFLJTMrDqY6fN">
+              <Node Bounds="616,65,164,19" Id="E3ZuYxHLCiFLJTMrDqY6fN">
                 <p:NodeReference LastCategoryFullName="VL.OpenCV.Converters" LastDependency="VL.OpenCV.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="MatrixToRotationAndTranslation" />
@@ -26900,6 +26900,53 @@
               <Pad Id="HvfsdBoXeYbOAcY0avcqkw" SlotId="Uz7V7l2wRrhMLslEjgjaTj" Bounds="617,175" />
               <Pad Id="GFggr9DCIcaLEwqsH8ymn0" SlotId="FfNXS8RDtEjOdTBZjG1tDV" Bounds="703,175" />
               <ControlPoint Id="B4ica014MfMLjJaZbftqou" Bounds="297,967" />
+              <Node Bounds="350,48,206,139" Id="P5pUlmaIdxVOWD1E4U3OGr">
+                <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <CategoryReference Kind="Category" Name="Primitive" />
+                  <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
+                </p:NodeReference>
+                <Pin Id="UOh9iZ6ZCGOMBUEUcnFMrE" Name="Break" Kind="OutputPin" />
+                <Patch Id="H58PeQdCAnPNFj89bYDcGh" ManuallySortedPins="true">
+                  <Patch Id="TpdThksRw16LzMwm9PSab9" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="P0Ep57sh9JKNfFsESlqPOz" Name="Update" ManuallySortedPins="true" />
+                  <Patch Id="T6vNKrqKtjoO057A4GugdX" Name="Dispose" ManuallySortedPins="true" />
+                  <Node Bounds="362,124,42,19" Id="PzTsACm2uI3QIt1IIq7uJc">
+                    <p:NodeReference LastCategoryFullName="3D.Matrix" LastDependency="VL.CoreLib.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="4026531840" Name="Matrix" NeedsToBeDirectParent="true" />
+                      <Choice Kind="OperationCallFlag" Name="Invert" />
+                    </p:NodeReference>
+                    <Pin Id="CUweOQrPbt9OyHnOo05ao3" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="MTJ1gsaZdlKLRkIZUnn60v" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <Node Bounds="362,93,25,19" Id="GJxQcajHptFNjFLOVtuHJq">
+                    <p:NodeReference LastCategoryFullName="Math" LastDependency="VL.CoreLib.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="*" />
+                    </p:NodeReference>
+                    <Pin Id="Vdh5AnV8JpmMVpvyDwdXQM" Name="Input" Kind="InputPin" />
+                    <Pin Id="Qp6sMN7nlDaPVe97SvZ0q8" Name="Input 2" Kind="InputPin" />
+                    <Pin Id="MywPNs1SOpmLwwytNomc1u" Name="Output" Kind="OutputPin" />
+                  </Node>
+                  <Pad Id="Sum1v4pGuIBMo8f2e6JRP7" Comment="" Bounds="401,76,124,66" ShowValueBox="true" isIOBox="true" Value="1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1">
+                    <p:TypeAnnotation LastCategoryFullName="3D" LastDependency="VL.CoreLib.vl">
+                      <Choice Kind="TypeFlag" Name="Matrix" />
+                    </p:TypeAnnotation>
+                  </Pad>
+                </Patch>
+                <ControlPoint Id="QjYDT1O3oDrL555GVHezXW" Bounds="364,54" Alignment="Top" />
+                <ControlPoint Id="PWY3RQhZBmMQVdEfA7f1MG" Bounds="439,181" Name="" Alignment="Bottom" />
+              </Node>
+              <Pad Id="HjLNkbbXrOfM7dlWSZ3pvM" Bounds="450,-29,130,77" ShowValueBox="true" isIOBox="true" Value="CalibrateHandEye expects an OpenCV camera matrix (left-handed).">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="String" />
+                </p:TypeAnnotation>
+                <p:ValueBoxSettings>
+                  <p:fontsize p:Type="Int32">9</p:fontsize>
+                  <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+                </p:ValueBoxSettings>
+              </Pad>
             </Canvas>
             <ProcessDefinition Id="OMaVZIFUKfpNyfdMp6rrNw">
               <Fragment Id="CBz4CLYyLhKPhtqaKJMBkr" Patch="C1a9c8VZkZeLyqY1X1WzVb" Enabled="true" />
@@ -26949,7 +26996,6 @@
             <Link Id="OMnWzrpOdFbOI3VCIcbwD8" Ids="JvRMztwjcPqMNJpR9KZyX9,LKftXF3mHRmOI4TCmc1DGZ" />
             <Link Id="KuHa6grYAHoMEnUwV2UdCV" Ids="HB1jUh2CqUbQAqA0eMUB8n,Ay38dVcjGQFLrVnitNxhT2" />
             <Link Id="NmG1yjlrIfSPuWc5b24Z9T" Ids="JFqPQcTXKXWOq7uKbu3gXo,EQX3QQrGQMlQJXzt3TAQRK" IsHidden="true" />
-            <Link Id="RI9pTvlGA42QG7PYDpsC3F" Ids="EQX3QQrGQMlQJXzt3TAQRK,OsWT5cUnEUfNzZf3N0zdUr" />
             <Link Id="UP3Mk6FML3VPYC44hxIDvQ" Ids="LKftXF3mHRmOI4TCmc1DGZ,B19J1vSP39hMxmZuDKzAuw" />
             <Link Id="KOH3Q9m7z6GPgXyi0k1H0F" Ids="Ay38dVcjGQFLrVnitNxhT2,UwakSXc67X8NjhqGnLx7ox" />
             <Link Id="ObGXVGVm6BJN1F1lDaxMrt" Ids="RRay0M8UycQMiuAtHLi3Pf,FxHLkpMIzfWQc6uZa1B8vD" />
@@ -26990,6 +27036,12 @@
             <Link Id="Rhqbewm96s8MPN61WB2FGe" Ids="Bc69x9y4slaNEwWOEwrLCs,PNJAwDuzssJMCfPo5Y4nbd" />
             <Link Id="DAqxcSbOtAWMECRYHzOIpG" Ids="PNJAwDuzssJMCfPo5Y4nbd,B4ica014MfMLjJaZbftqou" />
             <Link Id="FzVZuLXNOeeOPfNPKRdnhW" Ids="B4ica014MfMLjJaZbftqou,GPr2TEBUuP4NR8sX5DncsQ" IsHidden="true" />
+            <Link Id="KLAjP8yV2l9MgMh0iB1WUG" Ids="MTJ1gsaZdlKLRkIZUnn60v,PWY3RQhZBmMQVdEfA7f1MG" />
+            <Link Id="M9LhgwjwZn6L8zuiGnHnNM" Ids="QjYDT1O3oDrL555GVHezXW,Vdh5AnV8JpmMVpvyDwdXQM" />
+            <Link Id="EWJnAZX4LIVM87mF2DtIPF" Ids="MywPNs1SOpmLwwytNomc1u,CUweOQrPbt9OyHnOo05ao3" />
+            <Link Id="On5x5Q1EVY6NR4zBGY1BY7" Ids="Sum1v4pGuIBMo8f2e6JRP7,Qp6sMN7nlDaPVe97SvZ0q8" />
+            <Link Id="UmxsRNamrnVQCMsNJ4TbGm" Ids="EQX3QQrGQMlQJXzt3TAQRK,QjYDT1O3oDrL555GVHezXW" />
+            <Link Id="C69OmFnOtsELgfYutu9LqV" Ids="PWY3RQhZBmMQVdEfA7f1MG,OsWT5cUnEUfNzZf3N0zdUr" />
           </Patch>
         </Node>
       </Canvas>
